@@ -177,7 +177,7 @@ const SearchInput = styled.input`
 `;
 
 const WhatsAppLogo = styled.img`
-    bottom: 10%;
+    bottom: 5%;
     left: 2%;
     z-index: 99;
     position: fixed;
@@ -226,7 +226,7 @@ class Header extends Component {
                             <EmailAddress><i className="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@mksoldagehome.com">info@mksoldagehome.com</a></EmailAddress>
                         </ContactDiv>
                         <WhatsAppIcon>
-                            <a href="https://api.whatsapp.com/send?phone=+91%209811278178&text=%24wa_messagehttps%3A%2F%2Fwww.mksoldagehome.com"><i className="fa fa-whatsapp" aria-hidden="true"></i></a>
+                            <i className="fa fa-whatsapp" aria-hidden="true"></i>
                         </WhatsAppIcon>
                     </HeaderContainer>
                     <SubHeaderContainer>
