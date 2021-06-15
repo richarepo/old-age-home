@@ -1,0 +1,32 @@
+
+.prev-arrow {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  padding: 10px 14px 10px 16px;
+  color: black;
+  background-color: #fafaf8;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+.next-arrow {
+  position: absolute;
+  left: 10px;
+  top: 40%;
+  z-index: 1;
+  background-color: red;
+  padding: 10px 16px 10px 14px;
+  color: black;
+  background-color: #fafaf8;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+@media only screen and (min-width: 500px) {
+  .prev-arrow {
+    right: 10px;
+  }
+}
