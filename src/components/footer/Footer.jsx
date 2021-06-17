@@ -120,7 +120,7 @@ const Footer = props => {
             </FooterBody>
             <SocialIcon>
                 <FaceBookIcon>
-                    <a href="https://www.facebook.com/profile.php?id=100034889017057" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                         <i className="fa fa-facebook-square fa-3x"
                             aria-hidden="true"
                             style={{

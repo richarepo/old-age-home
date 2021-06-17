@@ -7,14 +7,15 @@ import Donation from "./components/donation/Donation.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Header from './components/header/Header.jsx';
 import Home from "./components/home/index.js";
+import MokshaHome from "./components/moksha/index.js";
 import Price from "./components/price/Price.jsx";
 import Service from "./components/service/Service.jsx";
-import Volunteer from "./components/volunteers/Volunteer.jsx";
+import VolunteerHome from "./components/volunteers/index.js";
 
 const Container = styled.div`
   margin-top: 120px;
   @media(max-width: 500px){
-    margin-top: 150px;    
+    margin-top: 130px;    
   }
 `;
 
@@ -31,7 +32,8 @@ function App() {
           <Route exact path="/donation"> <Donation /> </Route>
           <Route exact path="/contact-us"> <ContactUs /> </Route>
           <Route exact path="/covid-19"><CovidHome /></Route>
-          <Route exact path="/volunteers"><Volunteer /></Route>
+          <Route exact path="/volunteers"><VolunteerHome /></Route>
+          <Route exact path="/why-moksha"><MokshaHome /></Route>
         </Switch>
       </Container>
       <Footer />

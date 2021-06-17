@@ -159,7 +159,7 @@ const SearchBar = styled.div`
     border-bottom: 2px solid #e9e9e9;
     width: 100%;
     z-index: 9999;
-    top: 130px;
+    top: 125px;
     .fa {
         font-size: 24px;
         padding-left: 50px;
