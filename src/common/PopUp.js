@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import CrossIcon from '../assets/images/cross.svg'
+import { disableBackgroundScroll } from './helper';
 
 const Container = styled.div`
 position: fixed;
@@ -37,23 +38,14 @@ overflow-x: hidden;
 `;
 
 const Cross = styled.img`
-position: absolute;
-cursor: pointer;
-top: 16px;
-right: 16px;
-width: 16px;
-height: 16px;
-z-index: 1;
+    position: absolute;
+    cursor: pointer;
+    top: 16px;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    z-index: 1;
 `;
-
-const disableBackgroundScroll = state => {
-    let elem = document.getElementById(`body-section`);
-    if (!!state) {
-        elem.style.overflow = "hidden";
-    } else {
-        elem.style.overflow = 'unset';
-    }
-}
 
 class PopUp extends Component {
     static defaultProps = {

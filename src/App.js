@@ -7,6 +7,7 @@ import Donation from "./components/donation/Donation.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Header from './components/header/Header.jsx';
 import Home from "./components/home/index.js";
+import MediaHome from "./components/media-coverage/index.js";
 import MokshaHome from "./components/moksha/index.js";
 import Price from "./components/price/Price.jsx";
 import Service from "./components/service/Service.jsx";
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/covid-19"><CovidHome /></Route>
           <Route exact path="/volunteers"><VolunteerHome /></Route>
           <Route exact path="/why-moksha"><MokshaHome /></Route>
+          <Route exact path="/media-coverage"><MediaHome /></Route>
         </Switch>
       </Container>
       <Footer />

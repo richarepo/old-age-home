@@ -6,7 +6,7 @@ import { footerList } from '../../constant'
 const Container = styled.div`
     color: #fff;
     background-color: #166999;
-    border-top: 15px solid #73c102;
+    border-top: 15px solid rgb(224, 95, 21);
 `;
 
 const FooterBody = styled.div`

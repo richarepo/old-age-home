@@ -82,7 +82,7 @@ const ContactUs = () => {
     return (
         <Container>
             <SubContainer>
-                <Heading>Donation</Heading>
+                <Heading>Contact Us</Heading>
                 <HomeImage src={ContactHome} />
                 <h1>MUKHIYA KARAN SINGH OLD AGE HOME</h1>
                 <BodyImage src={ContactBody} />

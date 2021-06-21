@@ -55,17 +55,16 @@ const DonationButton = styled.button`
     font-weight: 600;
     margin-top: 30px;
     border-radius: 4px;
-    // border: 1px solid rgba(0,0,0,.1);
-    border: 1px solid #73c102;
+    border: 1px solid rgb(224, 95, 21);
     :hover {
         color: #fff;
-        background: #73c102;
+        background: rgb(224, 95, 21);
     }
 `;
 
 const DonationAmount = styled.div`
     display: flex;
-    border: 1px solid #73c102;
+    border: 1px solid rgb(224, 95, 21);
     .fa {
         left: 42%;
         color: #333;
@@ -83,7 +82,7 @@ const Amount = styled.div`
     justify-content: center;
     display: flex;
     color: #fff;
-    background: #73c102;
+    background: rgb(224, 95, 21);
     cursor: pointer;
     :hover {
         opacity: 0.8;

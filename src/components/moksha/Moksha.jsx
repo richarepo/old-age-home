@@ -45,7 +45,7 @@ const Text = styled.div`
 const SeniroList = styled.div`
     display: flex;
     align-items: center;
-    background: ${props => props.check ? '#73c102' : "#fff"};
+    background: ${props => props.check ? 'rgb(224, 95, 21)' : "#fff"};
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     @media(max-width:768px){
@@ -53,7 +53,7 @@ const SeniroList = styled.div`
     }
     .selected-list {
         :hover {
-            color: ${props => props.check ? '#fff' : "#73c102"};
+            color: ${props => props.check ? '#fff' : "rgb(224, 95, 21)"};
         }
     }
 `;
@@ -66,18 +66,18 @@ const SeniroTitle = styled.div`
     font-weight: 500;
     :hover {
         cursor: pointer;
-        color: #73c102;
+        color: rgb(224, 95, 21);
     }
 `;
 
 
 const SeniorList = styled.div`
     width: 25%;
-    border-right: 1px solid #73c102;
+    border-right: 1px solid rgb(224, 95, 21);
     @media(max-width: 768px) {
         width: 100%;
         border-right: unset;
-        border-bottom: 1px solid #73c102;
+        border-bottom: 1px solid rgb(224, 95, 21);
         padding-bottom: 35px;
     }
 `;
@@ -130,12 +130,13 @@ const ShowText = styled.div`
     border-radius: 4px;
     align-items: center;
     justify-content: center;
-    border: 1px solid #73c102;
+    color: rgb(224, 95, 21);
+    border: 1px solid rgb(224, 95, 21);
     text-transform: uppercase;
     :hover {
         color: #fff;
         cursor: pointer;
-        background: #73c102;
+        background: rgb(224, 95, 21);
     }
 `;
 
@@ -202,7 +203,7 @@ const Reviews = styled.div`
 const Number = styled.div`
     font-size: 4rem;
     font-weight: 900;
-    color: #73c102;
+    color: rgb(224, 95, 21);
     @media(max-width: 768px){
         font-size: 3rem;
     }

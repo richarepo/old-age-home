@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import styled from 'styled-components'
 import HaderImage from '../../assets/images/cropped-logo1-1.png'
 import WhatsApp from '../../assets/images/whatsapp-logo.svg'
+import { disableBackgroundScroll } from '../../common/helper';
 import { headerList } from '../../constant'
 
 const Container = styled.div`
@@ -11,7 +12,73 @@ const Container = styled.div`
     left: 0;
     position: fixed;
     z-index: 999;
+    .dropdown {
+        @media (max-width: 768px){
+            color: #fff !important;
+            display: ${props => props.openMenu ? 'block' : 'none'} !important;
+            width: 95%;
+            background: #0c1923 !important;
+            border-bottom: 1px solid darkblue !important;
+            padding: 14px !important;
+        }
+    }
     box-shadow: 1px 1px 4px #ddd;
+    .dropbtn {
+        font-size: 16px;
+        border: none;
+      }
+      
+    .dropdown {
+        padding: 8px 15px;
+        color: #333;
+        background: #fff;
+        position: relative;
+        display: inline-block;
+        :hover {
+            cursor: pointer;
+            background: rgb(224, 95, 21);;
+            color: #fff;
+        }
+    }
+      
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+      
+    .dropdown-content .anchor {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+      
+    .dropdown-content .anchor:hover {
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: rgb(224, 95, 21);;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        left: 0px;
+        top: 35px;
+        display: block;
+        @media(max-width: 768px){
+            width: 100%;
+            top: 48px;
+            height: 160px;
+            overflow-x: scroll;
+        }
+        @media(max-width: 500px){
+            width: 100%;
+        }
+    }
+      
 `;
 
 const HeaderContainer = styled.div`
@@ -20,13 +87,13 @@ const HeaderContainer = styled.div`
     font-size: 13px;
     padding: 14px 60px;
     background: #3a3c41;
-    border-top: 4px solid #59BA47;
+    border-top: 4px solid rgb(224, 95, 21);
     justify-content: space-between;
     a {
         color: #fff;
         text-decoration: none;
         :hover {
-            color: #73c102;
+            color: rgb(224, 95, 21);;
             text-decoration: underline;
         }
     }
@@ -102,17 +169,15 @@ const WhatsAppIcon = styled.div`
 const HeaderData = styled.div`
     padding: 8px 15px;
     color: ${props => props.checkIndex ? '#fff' : '#333'};
-    background: ${props => props.checkIndex ? '#73c102' : '#fff'};
+    background: ${props => props.checkIndex ? 'rgb(224, 95, 21);' : '#fff'};
     :hover {
         color: #fff;
-        cursor: pointer;
-        background: #73c102;
+        cursor: pointer !important;
+        background: rgb(224, 95, 21);;
     }
-    @media (max-width: 768px) {
-        display: ${props => props.openMenu ? 'block' : 'none'};
-    }
-    @media(max-width: 768px){
+    @media (max-width: 768px){
         color: #fff;
+        display: ${props => props.openMenu ? 'block' : 'none'};
         width: 95%;
         background: unset;
         border-bottom: 1px solid darkblue;
@@ -202,6 +267,11 @@ class Header extends Component {
 
     componentWillUnmount = () => document.removeEventListener('click', this.handleClickOutside)
 
+    componentDidUpdate = () => {
+        if (this.state.openMenuBar) disableBackgroundScroll(true)
+        else disableBackgroundScroll(false)
+    }
+
     handleClickOutside = event => {
         const elemWrapper = this.winWrapper
 
@@ -219,38 +289,50 @@ class Header extends Component {
 
         return (
             <Fragment>
-                <Container>
+                <Container openMenu={openMenuBar}>
                     <HeaderContainer>
                         <ContactDiv>
-                            <ContactNumber><i className="fa fa-phone-square" aria-hidden="true"></i> <a href="tel:+91 9811278178">+91 9811278178</a></ContactNumber>
-                            <EmailAddress><i className="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@mksoldagehome.com">info@mksoldagehome.com</a></EmailAddress>
+                            <ContactNumber><i className='fa fa-phone-square' aria-hidden='true'></i> <a href='tel:+91 9811278178'>+91 9811278178</a></ContactNumber>
+                            <EmailAddress><i className='fa fa-envelope' aria-hidden='true'></i> <a href='mailto:info@mksoldagehome.com'>info@mksoldagehome.com</a></EmailAddress>
                         </ContactDiv>
                         <WhatsAppIcon>
-                            <i className="fa fa-whatsapp" aria-hidden="true"></i>
+                            <i className='fa fa-whatsapp' aria-hidden='true'></i>
                         </WhatsAppIcon>
                     </HeaderContainer>
                     <SubHeaderContainer>
-                        <HeaderImage onClick={() => history.push('/')} src={HaderImage} alt="error-image" />
+                        <HeaderImage onClick={() => history.push('/')} src={HaderImage} alt='error-image' />
                         <HeaderList>
                             {headerList.map((obj, index) => {
                                 return (
-                                    <HeaderData openMenu={openMenuBar} onClick={() => {
-                                        history.push(obj.path)
-                                    }} key={index} checkIndex={pathUrl === obj.path && true}>
-                                        {obj.name}
-                                    </HeaderData>
+                                    <Fragment key={index}>{index <= 5 &&
+                                        <HeaderData openMenu={openMenuBar} onClick={() => {
+                                            history.push(obj.path)
+                                        }} checkIndex={pathUrl === obj.path && true}>
+                                            {obj.name}
+                                        </HeaderData>}
+                                    </Fragment>
                                 )
                             })}
+                            <div className='dropdown'>
+                                <div className='dropbtn'>Other</div>
+                                <div className='dropdown-content'>
+                                    {headerList.slice(6).map((data, id) => {
+                                        return (
+                                            <div className="anchor" href='#' key={id} onClick={() => history.push(data.path)} checkIndex={pathUrl === data.path && true}>{data.name}</div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
                             <SearchIcon onClick={() => this.setState({ openSearchBar: !openSearchBar })}>
-                                <i className="fa fa-search" aria-hidden="true"></i>
+                                <i className='fa fa-search' aria-hidden='true'></i>
                             </SearchIcon>
                         </HeaderList>
-                        <HomeMenuIcon ref={this.winWrapper} onClick={() => this.showMenuBar()}>{!!openMenuBar ? <i className="fa fa-times"></i> : <i className="fa fa-bars" aria-hidden="true"></i>} </HomeMenuIcon>
+                        <HomeMenuIcon onClick={() => this.showMenuBar()}>{!!openMenuBar ? <i className='fa fa-times'></i> : <i className='fa fa-bars' aria-hidden='true'></i>} </HomeMenuIcon>
                     </SubHeaderContainer>
                 </Container>
-                {!!openSearchBar && <SearchBar><i className="fa fa-search" aria-hidden="true"></i>
-                    <SearchInput type="text" placeholder="Search ..." /></SearchBar>}
-                <a href="https://api.whatsapp.com/send?phone=+91%209811278178&text=%24wa_messagehttps%3A%2F%2Fwww.mksoldagehome.com"><WhatsAppLogo src={WhatsApp} alt="whatsapp-logo-error" /></a>
+                {!!openSearchBar && <SearchBar><i className='fa fa-search' aria-hidden='true'></i>
+                    <SearchInput type='text' placeholder='Search ...' /></SearchBar>}
+                <a href='https://api.whatsapp.com/send?phone=+91%209811278178&text=%24wa_messagehttps%3A%2F%2Fwww.mksoldagehome.com'><WhatsAppLogo src={WhatsApp} alt='whatsapp-logo-error' /></a>
             </Fragment>
         )
     }

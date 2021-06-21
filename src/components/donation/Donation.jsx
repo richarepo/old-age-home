@@ -145,9 +145,11 @@ const PayNow = styled.button`
     border: none;
     border-radius: 4px;
     font-weight: 800;
+    color: rgb(224, 95, 21);
+    font-size: 16px;
     :hover{
         cursor: pointer;
-        background: #73c102;
+        background: rgb(224, 95, 21);
         color: #fff !important;
     }
 `;

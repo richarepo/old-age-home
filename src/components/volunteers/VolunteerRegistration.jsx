@@ -17,7 +17,7 @@ const Container = styled.div`
         padding-top: 10px;
         padding-left: 20px;
         :focus{
-            border: 1px solid #73c102;
+            border: 1px solid rgb(224, 95, 21);
         }
         @media(max-width: 500px) {
             width: 88%;
@@ -32,7 +32,7 @@ const Container = styled.div`
 const Title = styled.div`
     font-size: 30px;
     span {
-        color: #73c102;
+        color: rgb(224, 95, 21);
         font-size: 30px;
         font-weight: bold;
     }
@@ -61,7 +61,7 @@ const Input = styled.input`
     padding-left: 20px;
     margin-top: 5px;
     :focus{
-        border: 1px solid #73c102;
+        border: 1px solid rgb(224, 95, 21);
     }
 `;
 
@@ -88,7 +88,7 @@ const Button = styled.input`
     font-size: 16px;
     margin-top: 20px;
     padding: 0px 15px;
-    background: #73c102;
+    background: rgb(224, 95, 21);
     :hover{
         opacity: 0.8;
     }

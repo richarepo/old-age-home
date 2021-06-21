@@ -57,7 +57,7 @@ const HighlightBody = styled.div`
 const Data = styled.div`
     display: flex;
     i {
-        color: #73c102;
+        color: rgb(224, 95, 21);
     }
 `;
 
